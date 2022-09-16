@@ -1,16 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const {_getUser}= require('../controller/user_controller.js')
+const {_getUser, _searchUser,_, _getPost}= require('../controller/user_controller.js')
 
+// console.log(_getUser());
 
-router.get('/',(req,res)=>{
-    res.render('pages/index')
+// router.get('/',_searchUser)
 
-})
-
-router.get('/users',_getUser,(req,res)=>{
-})
-
+router.get('/users',_getUser)
+router.get('/',_getPost)
 
 
 
