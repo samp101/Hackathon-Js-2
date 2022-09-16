@@ -1,21 +1,14 @@
-const users = [
-    {user:{
-        name:'shmuel',
-        password:1234
-    }},
-    {user:{
-        name:'sam',
-        password:1234
-    }},
-    {user:{
-        name:'bob',
-        password:1234
-    }},
-] 
+const db = require('../connections/db.js')
 
+
+const getUser = ()=>{
+    return db('users')
+    .select('id','username','password')
+    .returning('*')
+}
 
 module.exports = {
-    users
+    getUser
 }
 
 
