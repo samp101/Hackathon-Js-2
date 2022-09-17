@@ -1,29 +1,30 @@
-const db = require('../connections/db.js')
+const db_blog = require("../connections/db.js");
 
+// const getUserSpecific = (query)=>{
+//     return db('users')
+//     .select('id','username','password')
+//     .where({'username':`${query}`})
+//     .returning('*')
+// }
 
-const getUserSpecific = (query)=>{
-    return db('users')
-    .select('id','username','password')
-    .where({'username':`${query}`})
-    .returning('*')
-}
-
-const getUser = ()=>{
-    return db('users')
-    .select('id','username','password')
-    .orderBy('username')
-    .returning('*')
-}
+const getUser = () => {
+  return db_blog("users")
+    .select("id", "user_name", "password")
+    .orderBy("user_name");
+};
 const getPost = () => {
-    return db('post')
-    .select('user_id','post','date')
-    .returning('*')
-  }
+  return db_blog("posts").select(
+    "id",
+    "user_id",
+    "title",
+    "category",
+    "post",
+    "img_url",
+    "date_created"
+  );
+};
 
 module.exports = {
-    getUser,
-    getPost
-}
-
-
-
+  getUser,
+  getPost,
+};
