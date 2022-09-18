@@ -8,19 +8,34 @@
 
 <body>
     <%- include('../partials/header') %>
-        <h1><%-users[0].user_name%></h1> 
-        <h1><%-users[2].user_name%></h1> 
-        <h1><%-users[1].user_name%></h1> 
-        <h1><%-users[1].user_name%></h1> 
 
-        <% users.forEach((item, i)=> {
-            %>
-            <div class="">
-                <%= item.user_name%>
-                    <%= item.password%>
-            </div>
-            <% }); %>
-        <%- include('../partials/footer') %>
+    <a href="http://localhost:5000/create-post">Create A Post</a>
+
+    <% users.forEach((item, i)=> {
+        %>
+        <div class="">
+            <a class='blog-card' href="http://localhost:5000/blog/<%= item.id%>">
+                <%= item.title%>
+            </a>
+            
+        </div>
+        <% }); %>
+    <%- include('../partials/footer') %>
+
+        <h1><%- users[0].title %></h1> 
+        <h1></h1> 
+        <h1></h1> 
+        <h1></h1> 
+        <h1></h1> 
+
+       
 </body>
 
-</html>
+</html> 
+"id",
+"user_id",
+"title",
+"category",
+"post",
+"img_url",
+"date_created"
