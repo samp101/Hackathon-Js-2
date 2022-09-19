@@ -1,41 +1,30 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
+<%- include('../partials/head') %>
 
-<head>
-    <meta charset="utf-8">
-    <%- include('../partials/head') %>
-</head>
+    <body>
+        <%- include('../partials/header') %>
+            <div class="container-fluid">
+                <div class="card-group">
+                    <% users.forEach((item, i)=> {
+                        %>
+                        <div class="col">
+                            <div class="card">
+                                <img class="card-img-top" src="<%= item.img_url%>" alt="Card image">
+                                <div class="card-body">
+                                    <h3><a class="card-title" href="http://localhost:5000/blog/<%= item.id%>">
+                                            <%= item.title%>
+                                        </a></h3>
+                                    <div class="card-footer">
+                                        <small class="text-muted">
+                                            <%= item.date_created%>
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <% }); %>
+                </div>
+                <%- include('../partials/footer') %>
+            </div>
+    </body>
 
-<body>
-    <%- include('../partials/header') %>
-
-    <a href="http://localhost:5000/create-post">Create A Post</a>
-
-    <% users.forEach((item, i)=> {
-        %>
-        <div class="">
-            <a class='blog-card' href="http://localhost:5000/blog/<%= item.id%>">
-                <%= item.title%>
-            </a>
-            
-        </div>
-        <% }); %>
-    <%- include('../partials/footer') %>
-
-        <h1><%- users[0].title %></h1> 
-        <h1></h1> 
-        <h1></h1> 
-        <h1></h1> 
-        <h1></h1> 
-
-       
-</body>
-
-</html> 
-"id",
-"user_id",
-"title",
-"category",
-"post",
-"img_url",
-"date_created"
+    </html>

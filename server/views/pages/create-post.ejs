@@ -1,38 +1,41 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
+<%- include('../partials/head') %>
 
-<head>
-    <meta charset="utf-8">
-    <%- include('../partials/head') %>
-</head>
-<body>
+    <body>
+        <%- include('../partials/header') %>
+            <div class="container-fluid">
+                <h1>Create Post</h1>
+                <form lass="d-flex flex-column mb-3" onsubmit='createPost(event)' action="http://localhost:5000/"
+                    method="">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Title</label>
+                        <input class="form-control" type="text" name="title" id="blog-title">
+                    </div>
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Author</label>
+                        <input class="form-control" type="text" name="author" id="blog-author">
+                    </div>
+                    <div class="mb-3">
+                        <select class="form-select" name="category" id="blog-category">
+                            <option value="entertainment" selected>Entertainment</option>
+                            <option value="finace">Finace</option>
+                            <option value="computer Science">Computer Science</option>
+                            <option value="health">Health</option>
+                            <option value="science">Science</option>
+                            <option value="sports">Sports</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Post</label>
+                        <textarea name="blog-post" id="blog-post" cols="30" rows="5" class="form-control"></textarea>
+                    </div>
+                    <input type="submit" value="Create Post" class="btn btn-outline-success">
+                </form>
+            </div>
+            <%- include('../partials/footer') %>
 
-    <h1>Create Post</h1>
-    <form onsubmit='createPost(event)' action="http://localhost:5000/" method="">
-        <label for="title">Title</label>
-        <input type="text" name="title" id="blog-title">
-        <label for="title">Author</label>
-        <input type="text" name="author" id="blog-author">
-        <select name="category" id="blog-category">
-            <option value="entertainment">Entertainment</option>
-            <option value="finace">Finace</option>
-            <option value="computer Science">Computer Science</option>
-            <option value="health">Health</option>
-            <option value="science">Science</option>
-            <option value="sports">Sports</option>
-        </select>
-        <label for="title">Post</label>
-        <textarea name="blog-post" id="blog-post" cols="30" rows="10"></textarea>
-        <input type="submit" value="Create Post">
-    </form>
-
-
-                <%- include('../partials/footer') %>
                 <script>
-                    <%- include('../partials/create-post') %>
-
+                    <% - include('../partials/create-post') %>
                 </script>
+    </body>
 
-</body>
-
-</html>
+    </html>
