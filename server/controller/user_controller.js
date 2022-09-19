@@ -1,13 +1,13 @@
 const {
   getUser,
   getAllPost,
-  getSpecificArticle
+  getSpecificArticle,
+  uploadPostToDb
 } = require("../modules/user_modules.js");
 
 const _getUser = (req, res) => {
   getUser()
     .then((data) =>{
-      // const obj = {users:data} 
       res.render("pages/users",{
         users:data
       })}
@@ -52,11 +52,34 @@ const _getSpecificArticle = (req, res) => {
 
 
 const goToCreatePostPage = (req,res) =>{
-  res.render( res.render("pages/create-post"))
+  res.render("pages/create-post")
 }
+
+
+const _uploadPostToDb = (req, res) => {
+  console.log(req.body);
+
+  uploadPostToDb(req.body)
+    .then((data) => {
+      res.render("pages/index",{
+        users:data
+      })}
+    )
+    .catch((e) => {
+      console.log(e);
+      res.status(404).json({ msg: "not found" });
+    });
+};
+
+
+
+
+
+
 module.exports = {
   _getUser,
   _getAllPost,
   _getSpecificArticle,
-  goToCreatePostPage
+  goToCreatePostPage,
+  _uploadPostToDb
 };

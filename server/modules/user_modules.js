@@ -32,10 +32,16 @@ const getSpecificArticle = (post_id) => {
   .where({id:post_id})
 
 };
+const uploadPostToDb = (new_post) => {
+    return db_blog('posts')
+    .insert(new_post)
+    .returning('*')
+}
 
 module.exports = {
   getUser,
   getAllPost,
   getSpecificArticle,
+  uploadPostToDb
   
 }

@@ -8,7 +8,7 @@
 <body>
 
     <h1>Create Post</h1>
-    <form onsubmit='createPost(event)' action="" method="">
+    <form onsubmit='createPost(event)' action="http://localhost:5000/" method="">
         <label for="title">Title</label>
         <input type="text" name="title" id="blog-title">
         <label for="title">Author</label>
@@ -28,9 +28,10 @@
 
 
                 <%- include('../partials/footer') %>
+                <script>
+                    <%- include('../partials/create-post') %>
 
-<script src='../partials/create-post.js'>
-</script>
+                </script>
 
 </body>
 
