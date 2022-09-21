@@ -7,19 +7,32 @@ const db_blog = require("../connections/db.js");
 //     .returning('*')
 // }
 
-const getUser = () => {
-  return db_blog("users")
-    .select("id", "user_name", "password")
-    .orderBy("user_name");
-};
 const getAllPost = () => {
   return db_blog("posts").select(
     "id",
+    "user_id",
     "title",
+    "category",
+    "post",
+    "img_url",
+    "date_created"
   );
 
 };
 const getSpecificArticle = (post_id) => {
+  return db_blog("posts").select(
+    "id",
+    "user_id",
+    "title",
+    "category",
+    "post",
+    "img_url",
+    "date_created"
+  )
+  .where({id:post_id})
+
+};
+const getTitle = (post_id) => {
   return db_blog("posts").select(
     "id",
     "user_id",
@@ -45,9 +58,9 @@ const deletePost = (delete_post) => {
 }
 
 module.exports = {
-  getUser,
   getAllPost,
   getSpecificArticle,
   uploadPostToDb,
-  deletePost 
+  deletePost, 
+  getTitle
 }

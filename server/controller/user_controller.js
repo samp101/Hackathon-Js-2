@@ -1,13 +1,13 @@
 const {
-  getUser,
   getAllPost,
   getSpecificArticle,
   uploadPostToDb,
-  deletePost
+  deletePost,
+  getTitle
 } = require("../modules/user_modules.js");
 
-const _getUser = (req, res) => {
-  getUser()
+const _getTitle = (req, res) => {
+  getTitle(req.params.id)
     .then((data) =>{
       res.render("pages/users",{
         users:data
@@ -21,7 +21,7 @@ const _getUser = (req, res) => {
 
 const _getAllPost = (req, res) => {
   
- 
+ console.log('hello');
   getAllPost()
     .then((data) => {
        
@@ -88,10 +88,10 @@ console.log(req.params.id);
 
 
 module.exports = {
-  _getUser,
   _getAllPost,
   _getSpecificArticle,
   goToCreatePostPage,
   _uploadPostToDb,
-  _deletePost
+  _deletePost,
+  _getTitle
 };
