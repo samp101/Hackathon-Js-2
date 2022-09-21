@@ -1,0 +1,16 @@
+let searchInput = document.querySelector('#search')
+
+
+function addNewQuote(){
+    let search = searchInput.value
+  
+    if(search == ''){
+        containerOfAllCards.innerHTML = ''
+        return createCard(robots)   
+    }
+    let newSearch = robots.filter((e)=> e.username.includes(userInput) )
+    console.log(newSearch);
+    containerOfAllCards.innerHTML = ''
+    createCard(newSearch)
+}
+

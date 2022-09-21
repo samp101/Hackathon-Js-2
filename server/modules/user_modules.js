@@ -37,11 +37,17 @@ const uploadPostToDb = (new_post) => {
     .insert(new_post)
     .returning('*')
 }
+const deletePost = (delete_post) => {
+    return db_blog('posts')
+    .where({id:delete_post})
+    .del()
+    .returning('*')
+}
 
 module.exports = {
   getUser,
   getAllPost,
   getSpecificArticle,
-  uploadPostToDb
-  
+  uploadPostToDb,
+  deletePost 
 }

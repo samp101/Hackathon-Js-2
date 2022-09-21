@@ -1,23 +1,15 @@
-let blogTitle = document.querySelector(
-  "#blog-title"
-);
-let blogAuthor = document.querySelector(
-  "#blog-author"
-);
-let blogCatgory = document.querySelector(
-  "#blog-category"
-);
-let blogPost =
-  document.querySelector("#blog-post");
+let blogTitle = document.querySelector("#blog-title");
+let blogAuthor = document.querySelector("#blog-author");
+let blogCatgory = document.querySelector("#blog-category");
+let blogPost = document.querySelector("#blog-post");
 let form = document.querySelector("form");
 console.log(
   new Date().toLocaleDateString("fr-CA")
 );
 
 function createPost(e) {
-  let date = new Date().toLocaleDateString(
-    "fr-CA"
-  );
+  
+  let date = new Date().toLocaleDateString("fr-CA");
 
   const randomNum =
     Math.floor(Math.random() * 100) + 1;
@@ -45,6 +37,6 @@ function createPost(e) {
     },
     body: JSON.stringify(newPost),
   })
-    .then((res) => res)
+    .then((res) => {res, console.log('helllo')})
     .catch((err) => console.log(err));
 }

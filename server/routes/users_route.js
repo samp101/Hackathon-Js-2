@@ -7,6 +7,7 @@ const {
   _getSpecificArticle,
   goToCreatePostPage,
   _uploadPostToDb,
+  _deletePost,
 } = require("../controller/user_controller.js");
 
 // router.get('/',_searchUser)
@@ -16,5 +17,6 @@ router.get("/", _getAllPost);
 router.get("/blog/:id", _getSpecificArticle);
 router.get("/create-post", goToCreatePostPage);
 router.post("/uploadpost", _uploadPostToDb);
+router.post("/deletePost/:id", _deletePost);
 
 module.exports = router;

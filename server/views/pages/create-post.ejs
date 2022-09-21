@@ -4,8 +4,8 @@
         <%- include('../partials/header') %>
             <div class="container-fluid">
                 <h1>Create Post</h1>
-                <form lass="d-flex flex-column mb-3" onsubmit='createPost(event)' action="http://localhost:5000/"
-                    method="">
+                <form lass="d-flex flex-column mb-3" onsubmit='createPost(event)'  action='http://localhost:5000/' method=''>
+
                     <div class="mb-3">
                         <label for="title" class="form-label">Title</label>
                         <input class="form-control" type="text" name="title" id="blog-title">
@@ -34,7 +34,7 @@
             <%- include('../partials/footer') %>
 
                 <script>
-                    <% - include('../partials/create-post') %>
+                    <%- include('../partials/create-post') %>
                 </script>
     </body>
 

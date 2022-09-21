@@ -2,7 +2,8 @@ const {
   getUser,
   getAllPost,
   getSpecificArticle,
-  uploadPostToDb
+  uploadPostToDb,
+  deletePost
 } = require("../modules/user_modules.js");
 
 const _getUser = (req, res) => {
@@ -60,16 +61,26 @@ const _uploadPostToDb = (req, res) => {
   console.log(req.body);
 
   uploadPostToDb(req.body)
-    .then((data) => {
-      res.render("pages/index",{
-        users:data
-      })}
-    )
+    .then((data) => res.redirect('http://localhost:5000/'))
+    
+      // res.render("pages/index",{
+      //   users:data
+      // })}
     .catch((e) => {
       console.log(e);
       res.status(404).json({ msg: "not found" });
     });
 };
+const _deletePost = (req, res) => {
+  
+console.log(req.params.id);
+  deletePost(req.params.id)
+    .then((data) =>res.redirect('http://localhost:5000/'))
+    .catch((e) => {
+      console.log(e);
+      res.status(404).json({ msg: "Can Not Delete" });
+    })
+  }
 
 
 
@@ -81,5 +92,6 @@ module.exports = {
   _getAllPost,
   _getSpecificArticle,
   goToCreatePostPage,
-  _uploadPostToDb
+  _uploadPostToDb,
+  _deletePost
 };

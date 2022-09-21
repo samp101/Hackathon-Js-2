@@ -8,7 +8,13 @@
                         %>
                         <div class="col">
                             <div class="card">
+                                <form action="http://localhost:5000/deletePost/<%= item.id%>" method="post">
+                                    <!-- <input type="hidden" name="postId" value="<%= item.id%>"> -->
+                                    <input type="submit"  alt="" width='10px'height='10px'>
+                                    <!-- <img class="" src="./x.png" alt="x" width='10px'height='10px'style='color:yellow'> -->
+                                </form>
                                 <img class="card-img-top" src="<%= item.img_url%>" alt="Card image">
+                                
                                 <div class="card-body">
                                     <h3><a class="card-title" href="http://localhost:5000/blog/<%= item.id%>">
                                             <%= item.title%>
@@ -27,4 +33,7 @@
             </div>
     </body>
 
+    <script>
+        // <%- include('../partials/script') %>
+    </script>
     </html>
