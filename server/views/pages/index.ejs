@@ -7,28 +7,31 @@
                     <% users.forEach((item, i)=> {
                         %>
                         <div class="col">
-                            <div class="card">
-                                <form action="http://localhost:5000/deletePost/<%= item.id%>" method="post">
-                                    <!-- <input type="hidden" name="postId" value="<%= item.id%>"> -->
-                                    <input type="submit"  alt="" width='10px'height='10px'>
-                                    <img class="" src="./x.png" alt="x" width='10px'height='10px'style='color:black'>
-                                </form>
-                                <img class="card-img-top" src="<%= item.img_url%>" alt="Card image">
-                                
-                                <div class="card-body">
-                                    <h3><a class="card-title" href="http://localhost:5000/blog/<%= item.id%>">
-                                            <%= item.title%>
-                                        </a></h3>
-                                    <div class="card-footer">
-                                        <small class="text-muted">
-                                            <%= item.date_created%>
-                                        </small>
+                            <a href="http://localhost:5000/blog/<%= item.id%>">
+                                <div class="card bg-light">
+                                    <div position-relative>
+                                        <form action="http://localhost:5000/deletePost/<%= item.id%>" method="post">
+                                            <button type="submit" class="btn btn-dark position-absolute top-0 end-0"
+                                                aria-label="Close">x</button>
+                                        </form>
+                                        <img class="card-img-top" src="<%= item.img_url%>" alt="Card image">
+                                    </div>
+                                    <div class="card-body">
+                                        <h3><a class="card-title" href="http://localhost:5000/blog/<%= item.id%>">
+                                                <%= item.title%>
+                                            </a></h3>
+                                        <div class="card-footer">
+                                            <small class="text-muted">
+                                                <%= item.date_created%>
+                                            </small>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <% }); %>
                 </div>
+
                 <%- include('../partials/footer') %>
             </div>
     </body>
@@ -36,4 +39,5 @@
     <script>
         // <%- include('../partials/script') %>
     </script>
+
     </html>

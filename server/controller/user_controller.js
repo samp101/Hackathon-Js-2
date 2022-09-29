@@ -21,9 +21,17 @@ const _getTitle = (req, res) => {
 
 const _getAllPost = (req, res) => {
   
- console.log('hello');
+ console.log();
   getAllPost()
     .then((data) => {
+
+      // data.forEach(element => {
+      //   console.log(element.title);
+        
+      // })
+      // const a = data.filter(e=>e.title='ytyt')
+      // console.log(a);
+      // console.log(a.length);
        
       res.render("pages/index",{
         users:data
