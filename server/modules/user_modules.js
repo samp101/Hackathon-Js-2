@@ -1,4 +1,4 @@
-const db_blog = require("../connections/db.js");
+const db_blog = require('../connections/db.js');
 
 // const getUserSpecific = (query)=>{
 //     return db('users')
@@ -8,59 +8,30 @@ const db_blog = require("../connections/db.js");
 // }
 
 const getAllPost = () => {
-  return db_blog("posts").select(
-    "id",
-    "user_id",
-    "title",
-    "category",
-    "post",
-    "img_url",
-    "date_created"
-  );
-
+    return db_blog('posts').select('id', 'user_id', 'title', 'category', 'post', 'img_url', 'date_created');
 };
 const getSpecificArticle = (post_id) => {
-  return db_blog("posts").select(
-    "id",
-    "user_id",
-    "title",
-    "category",
-    "post",
-    "img_url",
-    "date_created"
-  )
-  .where({id:post_id})
-
+    return db_blog('posts')
+        .select('id', 'user_id', 'title', 'category', 'post', 'img_url', 'date_created')
+        .where({ id: post_id });
 };
 const getTitle = (post_id) => {
-  return db_blog("posts").select(
-    "id",
-    "user_id",
-    "title",
-    "category",
-    "post",
-    "img_url",
-    "date_created"
-  )
-  .where({id:post_id})
-
+    return db_blog('posts')
+        .select('id', 'user_id', 'title', 'category', 'post', 'img_url', 'date_created')
+        .where({ id: post_id });
 };
 const uploadPostToDb = (new_post) => {
-    return db_blog('posts')
-    .insert(new_post)
-    .returning('*')
-}
+    // Better to implement error message here.  What if user tries inserting 2 blogs with same title, and title is primary key?!
+    return db_blog('posts').insert(new_post).returning('*');
+};
 const deletePost = (delete_post) => {
-    return db_blog('posts')
-    .where({id:delete_post})
-    .del()
-    .returning('*')
-}
+    return db_blog('posts').where({ id: delete_post }).del().returning('*');
+};
 
 module.exports = {
-  getAllPost,
-  getSpecificArticle,
-  uploadPostToDb,
-  deletePost, 
-  getTitle
-}
+    getAllPost,
+    getSpecificArticle,
+    uploadPostToDb,
+    deletePost,
+    getTitle,
+};

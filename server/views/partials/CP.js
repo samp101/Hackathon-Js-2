@@ -54,7 +54,7 @@ let bob ={
     date_created: (new Date ()).toLocaleDateString ("fr-CA"), 
 }
 
-
+// variables repeated here...
 let blogTitle = document.querySelector('#blog-title') 
 let blogAuthor = document.querySelector('#blog-author') 
 let blogCatgory = document.querySelector('#blog-category') 
